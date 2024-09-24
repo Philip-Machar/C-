@@ -1,7 +1,7 @@
 /*
 Author: Philip Machar
 Reg No: BSE-01-0047/2024
-Description: A program to display 1 - 100 and calculate the sum
+Description: A program to display 1 - 100 and calculate the sum.
 */
 
 //importing the input/output stream library
