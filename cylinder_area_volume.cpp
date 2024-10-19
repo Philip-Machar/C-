@@ -14,7 +14,7 @@ using namespace std;
 //Defining a class called Cylinder
 class Cylinder {
     public:
-        //Declaring the data members
+        //Declaring the data member variables
         double radius, height, pi=3.14;
         
         //Defining the member functions
