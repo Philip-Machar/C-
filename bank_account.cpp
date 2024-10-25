@@ -69,6 +69,6 @@ int main() {
     // Print the final balance
     cout << "Final balance: $" << account.getBalance() << endl;
 
-    // Successful program execution
+    // Telling the OS that our program was successfully executed
     return 0;
 }
