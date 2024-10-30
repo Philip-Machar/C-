@@ -1,3 +1,11 @@
+
+/*
+Author: Philip Machar
+Reg No: BSE-01-0047/2024
+Description: A program to simulate a car
+*/
+
+//Importing the input/output stream library
 #include <iostream>
 using namespace std;
 
