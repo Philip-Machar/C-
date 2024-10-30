@@ -7,9 +7,6 @@ Description: A program that mimics the the oprations of a bank account such as d
 //Importing the input/output stream library
 #include <iostream>
 
-//Importing the string library
-#include <string>
-
 //Declaring the standard namespace for input/output
 using namespace std;
 
