@@ -1,5 +1,14 @@
+/*
+Author: Philip Machar
+Reg No: BSE-01-0047/2024
+Description: A program to demonstrate inheritance in C++
+*/
+
+//importing the input/output stream library
 #include <iostream>
 #include <cmath>
+
+//Declaring the standard namespace for input/output
 using namespace std;
 
 // Class representing a shape
