@@ -1,71 +1,72 @@
-/*
-Author: Philip Machar
-Reg No: BSE-01-0047/2024
-Description: A program that mimics the the oprations of a bank account such as deposit, withdraw etc.
-*/
-
-//Importing the input/output stream library
 #include <iostream>
-
-//Declaring the standard namespace for input/output
 using namespace std;
 
 class BankAccount {
-private:
-    string accountNumber;
-    double balance;
+    protected:
+        string accountHolder;
+        float balance;
 
-public:
-    // Constructor to initialize the account number and set the balance to 0
-    BankAccount(string accNum) {
-        accountNumber = accNum;
-        balance = 0.0;
-    }
-
-    // Method to deposit amount into the account
-    void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            cout << "Deposited: $" << amount << endl;
-        } else {
-            cout << "Invalid deposit amount." << endl;
+    public:
+        BankAccount(string accountHolder, float balance) {
+            setAccountHolder(accountHolder);
+            this->balance = balance;
         }
-    }
 
-    // Method to withdraw amount from the account
-    void withdraw(double amount) {
-        if (amount > balance) {
-            cout << "Withdrawal denied! Insufficient balance." << endl;
-        } else if (amount > 0) {
-            balance -= amount;
-            cout << "Withdrew: $" << amount << endl;
-        } else {
-            cout << "Invalid withdrawal amount." << endl;
+        void setAccountHolder(string name) {
+            accountHolder = name;
         }
-    }
 
-    // Method to return the current balance
-    double getBalance() {
-        return balance;
-    }
+        string getAccountHolder() {
+            return accountHolder;
+        }
+
+        float getBalance() {
+            return balance;
+        }
+};
+
+class SavingsAccount : public BankAccount {
+    private:
+        float interestRate;
+
+    public:
+        SavingsAccount(string accountHolder, float balance, float interestRate) 
+            : BankAccount(accountHolder, balance) {
+            this->interestRate = interestRate;
+        }
+
+        float calculatedInterest() {
+            return (balance * interestRate);
+        }
+};
+
+class CheckingAccount : public BankAccount {
+    private:
+        float transactionFee;
+
+    public:
+        CheckingAccount(string accountHolder, float balance, float transactionFee) 
+            : BankAccount(accountHolder, balance) {
+            this->transactionFee = transactionFee;
+        }
+
+        float deductFee() {
+            return (balance - transactionFee);
+        }
 };
 
 int main() {
-    // Creating a BankAccount object
-    BankAccount account("12345678");
+    SavingsAccount savingsAccount1("Alice", 1000, 0.03);
+    CheckingAccount checkingAccount1("Bob", 500, 2.5);
 
-    // Deposit $500 into the account
-    account.deposit(500);
+    cout << "Account Holder: " << savingsAccount1.getAccountHolder() << endl;
+    cout << "Balance: " << savingsAccount1.getBalance() << endl;
+    cout << "Interest: " << savingsAccount1.calculatedInterest() << endl;
 
-    // Withdraw $200 from the account
-    account.withdraw(200);
+    cout << "Account Holder: " << checkingAccount1.getAccountHolder() << endl;
+    cout << "Balance: " << checkingAccount1.getBalance() << endl;
+    
+    cout << "Updated Balance after Fee Deduction: " << checkingAccount1.deductFee() << endl;
 
-    // Attempt to withdraw $400 (should be prevented)
-    account.withdraw(400);
-
-    // Print the final balance
-    cout << "Final balance: $" << account.getBalance() << endl;
-
-    // Telling the OS that our program was successfully executed
     return 0;
 }
