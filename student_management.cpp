@@ -57,6 +57,8 @@ int main() {
     cout << "Name: " << student1.getName() << endl;
     cout << "Student ID: " << student1.getStudentID() << endl;
     
+    cout << endl;
+    
     cout << "Name: " << graduateStudent1.getName() << endl;
     cout << "Student ID: " << graduateStudent1.getStudentID() << endl;
     cout << "Research Topic: " << graduateStudent1.getResearchTopic() << endl;
